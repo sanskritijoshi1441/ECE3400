@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Clean Blog - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Intelligent Physical Systems</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">Labs/Milestones</a>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About the Team</a>
+            </li>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>Lab 1</h1>
+              <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+              <span class="meta">Posted by
+                <a href="#"></a>
+                on August 24, 2018</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+        <h3> Debrief</h3>
+<p></p>
+&#8226; Team met for first time, created Github repository and associated site. <p></p>
+&#8226; Learned basic Arduino Uno programming involving LEDs, potentiometers, and Servos hooked to the device’s digital pins. <p> </p>
+&#8226; Built a basic two-wheeled robot and programmed it to travel in a straight line and turn (robot followed different trace paths) <p></p>
+
+<h3> Materials </h3>
+&#8226; Arduino Uno <p></p>
+&#8226; USB A/B cable <p></p>
+&#8226; Continuous rotation servos <p></p>
+&#8226; LED (green) <p></p>
+&#8226; 1 Potentiometer <p></p>
+&#8226; Several 330 ohm resistors <p></p>
+&#8226; 1 Solderless breadboard <p></p>
+<h3> Blink </h3>
+<p> Our first task was to get acquainted with the Arduino Uno boards. With the Arduino software (equipped with a suitable USB driver), we could upload short programs written in the Arduino reference language to the board.</p>
+<p> We started with the simple example program to get the built in Arduino LED to blink on and off. The example program can be found in the Arduino IDE under File > Examples > 1. Basics > Blink</p>
+<h3> Modified Blink </h3>
+<p>Our second task was to modified the Blink program to instead blink an external LED that we installed in one of the Arduino’s digital pins (in series with a ~300Ω resistor). This also allowed us to successively test the digital pins to ensure all were functional. We continued installing resistors in series for the subsequent tests to make sure the board was not overflowing with a current it could not handle. </p>
+<img src = "code/Lab1code/mod_blink.JPG" alt="modified_blink" class="inline">
+<p> The setup for the LED was as shown below: </p>
+<img src = "LabImages/Lab1Pics/mod_blink.png" alt = "modified_blink" class "inline">
+<h3> Working With Analog Outputs</h3>
+<p> Next, we set up a potentiometer (variable resistor) in the Arduino’s analog pins and made sure we could read its value from our computer interface. We could then use this value to our advantage by feeding it back as an input into other devices and manually adjusting it to change the device’s effect. </p>
+<img src = "code/Lab1code/analog.JPG" alt="hi" class="inline">  
+<h3> Modified Analog Outputs </h3>
+<p> We then modified our code to test the potentiometer with an external LED where the potentiometer value determines the LED brightness. Though our code checked out and we were getting a modifiable result from the potentiometer, we realized the LED was not lighting up because our series resistor was much too high (300kΩ instead of 300Ω). Fixing this, we clearly saw the LED’s brightness change as a function of the potentiometer resistance. </p>
+<img src = "code/Lab1code/mod_analog.JPG" alt="hi" class="inline">
+<p> The setup for this portion of the lab was as shown below: </p>
+<img src = "LabImages/Lab1Pics/analog.png" alt = "modified_analog" class "inline">
+<h3> Parallax Servos</h3>
+<p> Following this, we began to work with servos. The servos we used could rotate clockwise or counterclockwise at varying speeds depending on the input integer we programmed into it. An integer value of 0 caused it to spin one way at full speed, 90 made it stop, and 180 caused it to spin at full speed the opposite way, with every value in between corresponding to intermediate speeds in the appropriate direction. </p>
+<img src = "code/Lab1code/servo.JPG" alt="hi" class="inline">
+<p> The setup for the servos for the lab was as shown below: </p>
+<img src = "LabImages/Lab1Pics/servo.png" alt = "servo" class "inline">
+<h3> Modified Parallax Servos </h3>
+<p> We then modified our code to link the servo to the potentiometer value so we could manually adjust the servo's rotation.</p>
+<img src = "code/Lab1code/mod_servo.JPG" alt="hi" class="inline">  
+<p> The setup for the servos for the lab was as shown below: </p>
+<img src = "LabImages/Lab1Pics/mod_servo.png" alt = "mod_servo" class "inline">
+<h3> Assembling Our Robot </h3>
+<img src = "LabImages/Lab1Pics/RobotImage.JPG" alt="hi" class="inline" width="300" height="300"> 
+<p> Our final step was to apply all this in building a basic robot. We first collected an assortment of the available pieces, including a chassis, 3D printed mounts for the wheels, two wheels connected to servos, and a ball bearing on a mount for stabilization. Piecing these together with screws and bolts, we created a bona fide tripedal robot with dual wheeled propulsion. </p>
+<p> Attaching the Arduino to the top of the chassis, we programmed our instructions into the robot to have it travel in a square. This meant we had to program the robot to travel in a straight line as well as turn 45 degrees. To achieve the former, we simply had to program the servos to spin in the same direction at the same speed. To get the robot to turn, we programmed one wheel to continue spinning forward while the other remained stagnant. In this case, a square being a closed form shape, it was always the same wheel running and the same one staying stagnant when turning. Once the program was uploaded, we connected the servo to a battery pack and successfully had it move, albeit not in a square. We had to adjust the time delays on its turns and its straight travel to make a more compact, efficient shape; the trace ended up being close to hexagonal, but we confirmed we had the methodology to make our robot run correctly. </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_y9xbL5jMRU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<img src = "code/Lab1code/robot_move.JPG" alt="hi" class="inline">
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+                <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; ECE 3400 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
