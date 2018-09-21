@@ -97,28 +97,28 @@
 <img src = "LabImages/Lab1Pics/mod_blink.png" alt = "modified_blink" class "inline">
 <h3> Working With Analog Outputs</h3>
 <p> Next, we set up a potentiometer (variable resistor) in the Arduino’s analog pins and made sure we could read its value from our computer interface. We could then use this value to our advantage by feeding it back as an input into other devices and manually adjusting it to change the device’s effect. </p>
-<img src = "code/Lab1code/analog.JPG" alt="hi" class="inline">  
+<img src = "code/Lab1code/analog.jpg" alt="hi" class="inline">  
 <h3> Modified Analog Outputs </h3>
 <p> We then modified our code to test the potentiometer with an external LED where the potentiometer value determines the LED brightness. Though our code checked out and we were getting a modifiable result from the potentiometer, we realized the LED was not lighting up because our series resistor was much too high (300kΩ instead of 300Ω). Fixing this, we clearly saw the LED’s brightness change as a function of the potentiometer resistance. </p>
-<img src = "code/Lab1code/mod_analog.JPG" alt="hi" class="inline">
+<img src = "code/Lab1code/mod_analog.jpg" alt="hi" class="inline">
 <p> The setup for this portion of the lab was as shown below: </p>
 <img src = "LabImages/Lab1Pics/analog.png" alt = "modified_analog" class "inline">
 <h3> Parallax Servos</h3>
 <p> Following this, we began to work with servos. The servos we used could rotate clockwise or counterclockwise at varying speeds depending on the input integer we programmed into it. An integer value of 0 caused it to spin one way at full speed, 90 made it stop, and 180 caused it to spin at full speed the opposite way, with every value in between corresponding to intermediate speeds in the appropriate direction. </p>
-<img src = "code/Lab1code/servo.JPG" alt="hi" class="inline">
+<img src = "code/Lab1code/servo.jpg" alt="hi" class="inline">
 <p> The setup for the servos for the lab was as shown below: </p>
 <img src = "LabImages/Lab1Pics/servo.png" alt = "servo" class "inline">
 <h3> Modified Parallax Servos </h3>
 <p> We then modified our code to link the servo to the potentiometer value so we could manually adjust the servo's rotation.</p>
-<img src = "code/Lab1code/mod_servo.JPG" alt="hi" class="inline">  
+<img src = "code/Lab1code/mod_servo.jpg" alt="hi" class="inline">  
 <p> The setup for the servos for the lab was as shown below: </p>
 <img src = "LabImages/Lab1Pics/mod_servo.png" alt = "mod_servo" class "inline">
 <h3> Assembling Our Robot </h3>
-<img src = "LabImages/Lab1Pics/RobotImage.JPG" alt="hi" class="inline" width="300" height="300"> 
+<img src = "LabImages/Lab1Pics/RobotImage.jpg" alt="hi" class="inline" width="300" height="300"> 
 <p> Our final step was to apply all this in building a basic robot. We first collected an assortment of the available pieces, including a chassis, 3D printed mounts for the wheels, two wheels connected to servos, and a ball bearing on a mount for stabilization. Piecing these together with screws and bolts, we created a bona fide tripedal robot with dual wheeled propulsion. </p>
 <p> Attaching the Arduino to the top of the chassis, we programmed our instructions into the robot to have it travel in a square. This meant we had to program the robot to travel in a straight line as well as turn 45 degrees. To achieve the former, we simply had to program the servos to spin in the same direction at the same speed. To get the robot to turn, we programmed one wheel to continue spinning forward while the other remained stagnant. In this case, a square being a closed form shape, it was always the same wheel running and the same one staying stagnant when turning. Once the program was uploaded, we connected the servo to a battery pack and successfully had it move, albeit not in a square. We had to adjust the time delays on its turns and its straight travel to make a more compact, efficient shape; the trace ended up being close to hexagonal, but we confirmed we had the methodology to make our robot run correctly. </p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_y9xbL5jMRU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<img src = "code/Lab1code/robot_move.JPG" alt="hi" class="inline">
+<img src = "code/Lab1code/robot_move.jpg" alt="hi" class="inline">
           </div>
         </div>
       </div>
