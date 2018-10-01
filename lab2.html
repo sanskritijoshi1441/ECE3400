@@ -94,18 +94,18 @@
  <p>We propped the IR hat onto our robot and connected it to an external 9V power source. We set up the circuit above with the analog pin 0 on the Arduino and ran the FFT to read the signal from the phototransistor. Using the oscilloscope we were able to detect the frequency being emitted from the IR hat. The output of the circuit when we held the phototransistor close to the IR hat is shown below:</p> 
 <img src = "LabImages/Lab2Images/Phototransistor output.png" alt="hi" class="inline">
             <p>This is the output of the phototransistor picked up by the oscilloscope:</p>
-<img src = "LabImages/Lab2Images/IMG_2715.JPG" alt="hi" class="inline">
+<img src = "LabImages/Lab2Images/IMG_2715.JPG" alt="hi" class="inline" width="600">
 <p>In the graph, we see peaks in bins 40~42 as expected. We know this because we calculated bin width = sampling frequency / # of samples. Sampling frequency is calculated from clock system frequency / division factor / clock = 16MHz / 32 / 13 = ~38kHz. Bin width then becomes 150Hz. 
 Knowing this, we would then expect 6.08kHz to reside in bin 40 because bin 40 holds frequencies ranging from 6000 to 6150. However, our oscilloscope was picking up a frequency of 6.2kHz which would explain why our peaks were occuring at bins 41,42. </p>
 <p> During the competition, we need to detect the robots at a greater distance, therefore we decided to add a amplifying circuit to our original circuit in order amplify the signal. </p>
 <p>Originally, we had planned to create a band width filter in order to ignore lower frequencies caused by outside light and high frequencies caused by the decoy robots, but we were having issues with the op amps and decided to filter through the bins in the fft data. /p>
 <p>We created a simple inverting amplifier using the operational amplifier LM358 with Rin value 10 Ohms, and Rf value of 51k Ohms. Rin is in series with the 1.8k Ohm resistor we had originally in series with the phototransistor. </p>
-<img src = "LabImages/Lab2Images/invamp.png" alt="hi" class="inline">
+<img src = "LabImages/Lab2Images/invamp.png" alt="hi" class="inline" >
 <p>Finally, we connected the amplifier circuit to the circuit with the phototransistor and read the frequencies being emitted from the IR hat and the intensity of the signal.</p>
 <p> This is our circuit with the amplifier:</p>
-<img src = "LabImages/Lab2Images/IMG_2779.JPG" alt="hi" class="inline">
+<img src = "LabImages/Lab2Images/IMG_2779.JPG" alt="hi" class="inline" width="600">
 <p> This is our output from the phototransistor and amplifier circuit measured at specific distances from the IR hat. We are able to see that our circuit was able to detect a signal from another robot at a reasonable distance.</p>
-<img src = "LabImages/Lab2Images/Amplified.JPG" alt="hi" class="inline">
+<img src = "LabImages/Lab2Images/Amplified.JPG" alt="hi" class="inline" >
 <p>We added a few lines of code in the fft arduino code to have the Arduino light up an led when it detects another IR hat close by. Our code will check the bins of the frequency we are expecting the phototransistor to detect for an amplitude above a certain threshold, and will perform an action if that threshold frequency has been reached. For this lab, our action was to illuminate a green LED. The video belows shows our robot in action:    </p>
 <p>In the future, our team hopes to implement a high pass filter so that our robot will be able to ignore the lower frequencies emitted from the lights in the room.</p>
           </div>
