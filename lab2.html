@@ -70,8 +70,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-        <h3> Debrief</h3>
-<p></p>
+        <h3> Objective</h3>
+<p>THe objective of the lab is to add sensors to our robot so that it will be able to detect a 660 Hz whistle signifying the beginning of the maze mapping and detect nearby robots and ignore decoy robots.</p>
 &#8226; 
 <h3> Materials (Accoustic)</h3>
             &#8226; 1 Arduino Uno <p></p>
@@ -121,7 +121,7 @@
             &#8226; IR Transistor (OP598) <p></p>
             &#8226; 1 IR hat<p></p>
             &#8226; 1 IR decoys<p></p>
-            &#8226; LM358 operation amplifier<p></p>
+            &#8226; LM358 operational amplifier<p></p>
             &#8226; 1 10, 1.8k, 51k Resistor<p></p>
             &#8226; 1 green LED<p></p>
 <h3> The Lab </h3>
@@ -135,7 +135,7 @@
 <p>In the graph, we see peaks in bins 40~42 as expected. We know this because we calculated bin width = sampling frequency / # of samples. Sampling frequency is calculated from clock system frequency / division factor / clock = 16MHz / 32 / 13 = ~38kHz. Bin width then becomes 150Hz. 
 Knowing this, we would then expect 6.08kHz to reside in bin 40 because bin 40 holds frequencies ranging from 6000 to 6150. However, our oscilloscope was picking up a frequency of 6.2kHz which would explain why our peaks were occuring at bins 41,42. </p>
 <p> During the competition, we need to detect the robots at a greater distance, therefore we decided to add a amplifying circuit to our original circuit in order amplify the signal. </p>
-<p>Originally, we had planned to create a band width filter in order to ignore lower frequencies caused by outside light and high frequencies caused by the decoy robots, but we were having issues with the op amps and decided to filter through the bins in the fft data. /p>
+<p>Originally, we had planned to create a band width filter in order to ignore lower frequencies caused by outside light and high frequencies caused by the decoy robots, but we were having issues with the op amps and decided to filter through the bins in the fft data. </p>
 <p>We created a simple inverting amplifier using the operational amplifier LM358 with Rin value 10 Ohms, and Rf value of 51k Ohms. Rin is in series with the 1.8k Ohm resistor we had originally in series with the phototransistor. </p>
 <img src = "LabImages/Lab2Images/invamp.png" alt="hi" class="inline" >
 <p>Finally, we connected the amplifier circuit to the circuit with the phototransistor and read the frequencies being emitted from the IR hat and the intensity of the signal.</p>
