@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>Milestone 2</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -80,6 +80,11 @@
       <p></p>
 
             <h3> Wall Following </h3>
+            <p> We decided to use 3 different IR wall sensors, 
+              so we would be able to determine where the walls are, with the assumption that there is no wall 
+              behind us. The IR wall sensors were hooked up to our robot using analog pins. 
+              As we had three different ones, each had to connect to its own analog pin. The basic connections were as shown below </p>
+            
             <h3> Robot Detection </h3>
             <p>The main issue with integrating fft into the main code was figuring out how to work around the fft function shutting off timer 0 on the arduino, and the servo library relying on timer 0 to work. The purpose of shutting off timer 0 in the fft is to reduce noise when the function is picking up the freqeuncies from the phototransistor. The optical team tested to see how the presence of noise affected the IR reading and came to the conclusion that the noise was negligable. In our original fft function, we commented out the part that sets the timer0 register to 0. Our fft code also changes the default values of several registers as it runs. When integrating the fft code into the main code, we needed to make sure to reset the registers to allow the main code to run as expected. </p> 
             <p>One of the biggest issues with using the IR hat to detect other robots is that the phototransistors need to exactly in line with the IR hate to detect the frequencies. To increase the chances of the phototransistors being exactly in line with the IR hats of the other robots, we added a second phototransistor in parallel facing a different direction.</p>
