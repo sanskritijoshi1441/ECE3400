@@ -85,7 +85,7 @@
               behind us. The IR wall sensors were hooked up to our robot using analog pins. 
               As we had three different ones, each had to connect to its own analog pin. The basic connections were as shown below: </p>
           <img src = "LabImages/Milestone2/schematic.PNG" alt="osc" class="inline", width="797", height="496">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/VzaNOPeOXvg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VzaNOPeOXvg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> <p></p>
             
             <h3> Robot Detection </h3>
             <p>The main issue with integrating the FFT library into our main code was a timer conflict with the servo library. We realized that the FFT function would shut off timer0 on the arduino, while the servo library relied on timer0 to work. The FFT would shut off timer0 in order to reduce noise when the function is picking up the frequencies from the phototransistor, so the optical team tested how significantly the presence of noise affected the IR reading. We eventually came to the conclusion that the noise was negligible, so we commented out the section of code that sets the timer0 register to 0. Our FFT code also changes the default values of several registers as it runs. When integrating the FFT code into the main code, we needed to make sure to reset the registers to allow the main code to run as expected. </p> 
