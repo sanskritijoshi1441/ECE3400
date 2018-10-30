@@ -86,14 +86,22 @@
         <h6> Getting Started </h6>
         <p> First, we connected the arduinos to the radios. The below setup is how we connected them, where the GND pin was
           the squared pin on the transceivers: </p>
-         <img src = "LabImages/Lab3/radio_info.PNG" alt="hi" class="inline">
-         <p> Since we had two chinese arduinos, the radios had to be powered using the dc power supply.
+         <img src = "LabImages/Lab3/radio_info.PNG" alt="radio" class="inline">
+         <p> Since we had two non-original arduinos, the radios had to be powered using the dc power supply.
            We used the provided code to determine that both radios were able to transmit and recieve information.
            Once this was confirmed, we adjusted the code to send out maze information. </p>
         <h6> Sending Maze Information Between Arduinos </h6>
-            <h7> How we encoded the Maze Imformation </h7>
-            <p> </p>
-        <h6> Simulating Our Robot </h6>
+            <h6><i> How we encoded the Maze Imformation </i></h6>
+            <img src = "LabImages/Lab3/radio_data_encoding.PNG" alt="radio" class="inline">
+            <p> We encoded the maze information as shown above. The first four bits were
+            the x-coordinate values and the second 4 bits were the y-coordinate, 
+            accounting for values up to 9. The second two bits are the data bits, 
+            which for now only tells if there is a wall or trasure. The Select bits
+            have 4 bits to tell multiple information depending on the data bits. This is further
+            clarified in the table below. There is one bit for whether a robot is seen(1) or not seen(0) and 
+            one bit for if there is an other packet of informatino coming (1).</p>
+            <img src = "LabImages/Lab3/data_encoding.PNG" alt="radio" class="inline">
+            <h6> Simulating Our Robot </h6>
         <h6> Base Station-to-GUI Transmission </h6>
 
 <h3> Robot Group </h3> <p></p>
