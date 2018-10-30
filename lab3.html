@@ -102,7 +102,13 @@
             one bit for if there is an other packet of informatino coming (1).</p>
             <img src = "LabImages/Lab3/data_encoding.PNG" alt="radios" class="inline", width="400", height="200">
             <h6> Simulating Our Robot </h6>
+            <p>We simulated the robot by setting up 4 arrays, each one containg the information that the robot would send at each intersection.
+            Then in the main loop, we made a for loop, which would take element i from each array and bit shift them in accordance to our 
+            maze data encoding scheme and send it to the base station arduino. A working video of this is shown below: </p>
+            **************VIDEO********************
         <h6> Base Station-to-GUI Transmission </h6>
+            <p> On the GUI side, the information that was recieved was broken down into the basic elements and then a series of print statements
+              ending with a println() would update the GUI, adding the walls and the red dot for the simulated robot's current location.</p>
 
 <h3> Robot Group </h3> <p></p>
     <h5> Materials </h5>
