@@ -92,7 +92,7 @@
            Once this was confirmed, we adjusted the code to send out maze information. </p>
         <h6> Sending Maze Information Between Arduinos </h6>
             <h6><i> How we encoded the Maze Imformation </i></h6>
-            <img src = "LabImages/Lab3/radio_data_encoding.PNG" alt="radios" class="inline", width="797", height="200">
+            <img src = "LabImages/Lab3/radio_data_encoding.PNG" alt="radios" class="inline", width="797", height="100">
             <p> We encoded the maze information as shown above. The first four bits were
             the x-coordinate values and the second 4 bits were the y-coordinate, 
             accounting for values up to 9. The second two bits are the data bits, 
@@ -100,7 +100,7 @@
             have 4 bits to tell multiple information depending on the data bits. This is further
             clarified in the table below. There is one bit for whether a robot is seen(1) or not seen(0) and 
             one bit for if there is an other packet of informatino coming (1).</p>
-            <img src = "LabImages/Lab3/data_encoding.PNG" alt="radios" class="inline", width="400", height="200">
+            <img src = "LabImages/Lab3/data_encoding.PNG" alt="radios" class="inline", width="400", height="140">
             <h6> Simulating Our Robot </h6>
             <p>We simulated the robot by setting up 4 arrays, each one containg the information that the robot would send at each intersection.
             Then in the main loop, we made a for loop, which would take element i from each array and bit shift them in accordance to our 
