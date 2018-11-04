@@ -116,16 +116,22 @@
             &#8226; Decoy <br />
             &#8226; 660Hz tone generator <br />
             &#8226; Walls to make the following maze setup <br />
+            <p></p>
     <h5> The Lab </h5>
+            <p></p>
             <h6> Starting on a Tone and Exploring the Maze </h6>
-              <p> We began lab3 by integrating the mircrophone circuit code from lab 2 with the main code. From lab 2, we know that the 660 Hz frequency resides in bin 20 so we added some simple logic to our microphone code to check the amplitude of the frequency at bin 20 and have it output a 1 or a 0 depending on whether the microphone hears the 660 Hz tone. We called our microphone code
+              <p> We began lab3 by integrating the mircrophone circuit code from lab 2 with the main code. From lab 2, we know that the 660 Hz frequency resides in bin 20 so we added some simple logic to our microphone code to check the amplitude of the frequency at bin 20, and have it output a 1 or a 0 depending on whether the microphone hears the 660 Hz tone. We called our microphone code
                 in the setup portion of the code to ensure that the code will only get called once. In the video below you will see our robot waiting for the 660 Hz
                 tone before starting. </p>
               
               <iframe width="560" height="315" src="https://www.youtube.com/embed/n-r2EZM-ego" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <p>Our robot avoiding code from lab 2 originally had our robot do a 180 degree turn when it detects a robot. The video below shows that it
+                now stops when it detects other robots. Because our robot detection code only looks for frequencies that the IR hat emits, our robot will completely
+                ignore any decoys. </p>
             
-              <p>Below is a video of our robot starting at a 660 HZ tone and successfully sensing messages to the base station GUI. 
-            
+           <p>___________________________________************************* VIDEO HERE OF ROBOT DETECTION</p>
+              <p>Below is a video of our robot starting at a 660 HZ tone and successfully sensing messages to the base station GUI. </p>
+            <p>___________________________________************************* VIDEO HERE OF GUI STUFF</p>
           </div>
         </div>
       </div>
