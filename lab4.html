@@ -81,6 +81,11 @@
             &#8226; Displaying Color Bar <br />
             &#8226; Color detection <p></p>
 
+            <h4> Materials </h4> <p></p>
+            &#8226; FPGA, DE0-NANO <br />
+            &#8226; OV7670 Camera <br />
+            &#8226; VGA Adapter <p></p>
+            
 <h3> PLL </h3> <p></p>
     <p> The different devices involved in camera communication (camera, VGA module, RAM read and write capability) need clock to be run. To ensure the different clocks remain in phase (no skew), we set up a Phase-Locked Loop (PLL) from the FPGA’s CLOCK_50 via the Altera IP in Quartus.
     With this method, we set up three clock lines, each operating at different frequencies:
@@ -99,7 +104,8 @@
             <img src = "LabImages/Lab4/PLL_code.png" alt="PLL" class="inline"> <p></p>
             
             <h6> Buffer Reader </h6>
-            <p>After setting up the clocks, we created a test pattern to display to the M9K block. To do so, whenever we had PIXEL_X and PIXEL_Y within the screen bounds, we set W_EN to high to display our pattern on the screen. Our test pattern consists of three vertical blocks of different colors. To do this, we increment the pixels by the x-coordinate one by one, coloring in each time, and then by the y-coordinate when the x-coordinate reaches the SCREEN_WIDTH. We do this until the y-coordinate reaches the SCREEN_HEIGHT. 
+            <p>After setting up the clocks, we created a test pattern to display to the M9K block. To do so, whenever we had PIXEL_X and PIXEL_Y within the screen bounds, we set W_EN to high to display our pattern on the screen. 
+              Our test pattern consists of three vertical blocks of different colors. To do this, we increment the pixels by the x-coordinate one by one, coloring in each time, and then by the y-coordinate when the x-coordinate reaches the SCREEN_WIDTH. We do this until the y-coordinate reaches the SCREEN_HEIGHT. 
               To specifically do 3 blocks, we divide the SCREEN_WIDTH into 3 using conditional statements and color in the appropriate pixels with red, green, and blue. </p>
             <img src = "LabImages/Lab4/3_Stripes_code.png" alt="Stripes" class="inline"> <p></p>
             
@@ -107,19 +113,19 @@
             <p>For our color resolution we decided to use RGB332. To convert RGB565 to RGB 332, we took the 3 most significant bits of read, 3 of green, and 3 of blue, but because the OV7670 Camera can only output 8 bits of a pixel at a time, we need to extract pixel color data over two clock cycles. 
               We kept track of which clock cycle we are on, we created a register called ‘cycle’ with value 1 if we are reading from the first byte, or 0 if we are reading from the second byte. We also created a 16 bit TEMP register which will store all the values the two color data into one register. 
               On the second cycle, we will then set TEMP[15:13] to pixel_data_RGB[7:5], TEMP[10:8] to pixel_data_RGB[4:2], and TEMP[4:3] to pixel_data_RGB[1:0]. 
-            These values are set only when HREF, whose posedge indicates the start of a horizontal line of pixels, is high. Once pixel_data_RGB is set after the second cycle, W_EN was set to 1, X_ADDR was incremented by 1, and pixel_data_RGB332 is then sent to the M9K_RAM module which will output the image onto the screen, and also send and output to the IMAGE_PROCESSOR module to determine what the color is. </br> 
-          When HREF hits the negative edge and the value of HREF changes from 1 to 0, we set the X_ADDR back to 0, and increment Y_ADDR by 1 to start a new row of pixels. When VSYNC, which indicates the end of a frame hits the positive edge, and the value of VSYNC changes from 0 to 1, then we reset X_ADDR and Y_ADDR for we have reached the end of a frame and must start filling in pixels from the beginning. IMAGE OF CODE AFTER PIXELS</p> 
+            These values are set only when HREF, whose posedge indicates the start of a horizontal line of pixels, is high. Once pixel_data_RGB is set after the second cycle, W_EN was set to 1, X_ADDR was incremented by 1, and pixel_data_RGB332 is then sent to the M9K_RAM module which will output the image onto the screen, and also send and output to the IMAGE_PROCESSOR module to determine what the color is. <br/> 
+          When HREF hits the negative edge and the value of HREF changes from 1 to 0, we set the X_ADDR back to 0, and increment Y_ADDR by 1 to start a new row of pixels. When VSYNC, which indicates the end of a frame hits the positive edge, and the value of VSYNC changes from 0 to 1, then we reset X_ADDR and Y_ADDR for we have reached the end of a frame and must start filling in pixels from the beginning.</p> 
         <img src = "LabImages/Lab4/Byte_allocation_image.png" alt="Pixels" class="inline"><p></p>
         <img src = "LabImages/Lab4/" alt="Downsampler Code Here" class="inline"><p></p>
-            <p> Once we’ve written the downsampler code, and set the registers in the arduino code to display a color bar, we were able to display the color bar test as shown below. COLOR BAR TEST IMAGE </p>
+            <p> Once we’ve written the downsampler code, and set the registers in the arduino code to display a color bar, we were able to display the color bar test as shown below. </p>
         <img src = "LabImages/Lab4/" alt="Color Bar Test Image" class="inline"><p></p>
-            <p> We then set the registers to send the camera output, and successfully was able to display camera output onto the screen. CAMERA OUTPUT IMAGE </p>
+            <p> We then set the registers to send the camera output, and successfully was able to display camera output onto the screen. </p>
         <img src = "LabImages/Lab4/" alt="Camera Output Image Here" class="inline"><p></p>
         <h6> Image Processing </h6>
           <p> Our image processing module looks through one pixel of a frame at a time and determines the color of that pixel. 
             As the modules goes through all the pixels in the frame, it tallies the number of red, blue and other color pixels. 
             At the end of the frame, indicated by the positive edge of VSYNC, if more pixels are red than blue, and there are more red pixels than half the number of pixels in the frame (16’d17000, then the module determines the frame to be mostly red. 
-            The same process is used to determine if a frame is mostly blue, or no color. </br>
+            The same process is used to determine if a frame is mostly blue, or no color. <br/>
           Once a color for a frame has been determined, our module will output a 2 bit value. 
           If the value is 2’b01, the module detected that the frame is mostly blue, if it is 2’b10, the frame is red, and if is 2’b00, then no color was detected. 
       This 2 bit values are then outputted from the FPGA using two GPIO pins. </p>
