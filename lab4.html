@@ -110,10 +110,11 @@
             These values are set only when HREF, whose posedge indicates the start of a horizontal line of pixels, is high. Once pixel_data_RGB is set after the second cycle, W_EN was set to 1, X_ADDR was incremented by 1, and pixel_data_RGB332 is then sent to the M9K_RAM module which will output the image onto the screen, and also send and output to the IMAGE_PROCESSOR module to determine what the color is. </br> 
           When HREF hits the negative edge and the value of HREF changes from 1 to 0, we set the X_ADDR back to 0, and increment Y_ADDR by 1 to start a new row of pixels. When VSYNC, which indicates the end of a frame hits the positive edge, and the value of VSYNC changes from 0 to 1, then we reset X_ADDR and Y_ADDR for we have reached the end of a frame and must start filling in pixels from the beginning. IMAGE OF CODE AFTER PIXELS</p> 
         <img src = "LabImages/Lab4/Byte_allocation_image.png" alt="Pixels" class="inline"><p></p>
+        <img src = "LabImages/Lab4/" alt="Downsampler Code Here" class="inline"><p></p>
             <p> Once we’ve written the downsampler code, and set the registers in the arduino code to display a color bar, we were able to display the color bar test as shown below. COLOR BAR TEST IMAGE </p>
-        
+        <img src = "LabImages/Lab4/" alt="Color Bar Test Image" class="inline"><p></p>
             <p> We then set the registers to send the camera output, and successfully was able to display camera output onto the screen. CAMERA OUTPUT IMAGE </p>
-        
+        <img src = "LabImages/Lab4/" alt="Camera Output Image Here" class="inline"><p></p>
         <h6> Image Processing </h6>
           <p> Our image processing module looks through one pixel of a frame at a time and determines the color of that pixel. 
             As the modules goes through all the pixels in the frame, it tallies the number of red, blue and other color pixels. 
@@ -121,11 +122,17 @@
             The same process is used to determine if a frame is mostly blue, or no color. </br>
           Once a color for a frame has been determined, our module will output a 2 bit value. 
           If the value is 2’b01, the module detected that the frame is mostly blue, if it is 2’b10, the frame is red, and if is 2’b00, then no color was detected. 
-      This 2 bit values are then outputted from the FPGA using two GPIO pins. IMAGE OF CODE </p>
+      This 2 bit values are then outputted from the FPGA using two GPIO pins. </p>
+
+<img src = "LabImages/Lab4/" alt="Image Processing Code" class="inline"><p></p>
 
 <h3> Integration </h3> <p></p>
+<p> For color detection, we hooked up the image processor module to GPIO pins on the FPGA through code in Verilog. 
+  As a result, the Arduino could take the result of the image processor module and determine whether the image is mostly red, mostly blue, or neither; as mentioned in the above Image Processing portion of the FPGA Group section, the FPGA does this by outputting a 2 bit number. 
+  Additionally, we connected GPIO pins to digital pins on the Arduino, which takes the input values and displays what colors have been detected to the serial port. </p>   
             
-            
+<img src = "LabImages/Lab4/" alt="Integration Code Here" class="inline"><p></p>
+<p> Below is a video of our code detecting colors: </p>
           </div>
         </div>
       </div>
