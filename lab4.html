@@ -96,12 +96,12 @@
     
             <h6> Setup </h6>
             <p> Once we successfully set up our PLL, we declared wires for each of our clocks in the DE0_NANO. These clocks will be used to drive the VGA_DRIVER, M9K_RAM, and IMAGE_PROCESSOR modules. </p>
-            <img src = "LabImages/Lab4/PLL_code.png" alt="PLL" class="inline">
+            <img src = "LabImages/Lab4/PLL_code.png" alt="PLL" class="inline"> <p></p>
             
             <h6> Buffer Reader </h6>
             <p>After setting up the clocks, we created a test pattern to display to the M9K block. To do so, whenever we had PIXEL_X and PIXEL_Y within the screen bounds, we set W_EN to high to display our pattern on the screen. Our test pattern consists of three vertical blocks of different colors. To do this, we increment the pixels by the x-coordinate one by one, coloring in each time, and then by the y-coordinate when the x-coordinate reaches the SCREEN_WIDTH. We do this until the y-coordinate reaches the SCREEN_HEIGHT. 
               To specifically do 3 blocks, we divide the SCREEN_WIDTH into 3 using conditional statements and color in the appropriate pixels with red, green, and blue. </p>
-            <img src = "LabImages/Lab4/3_Stripes_code.png" alt="Stripes" class="inline">
+            <img src = "LabImages/Lab4/3_Stripes_code.png" alt="Stripes" class="inline"> <p></p>
             
             <h6> Downsampler </h6>
             <p>For our color resolution we decided to use RGB332. To convert RGB565 to RGB 332, we took the 3 most significant bits of read, 3 of green, and 3 of blue, but because the OV7670 Camera can only output 8 bits of a pixel at a time, we need to extract pixel color data over two clock cycles. 
@@ -109,7 +109,7 @@
               On the second cycle, we will then set TEMP[15:13] to pixel_data_RGB[7:5], TEMP[10:8] to pixel_data_RGB[4:2], and TEMP[4:3] to pixel_data_RGB[1:0]. 
             These values are set only when HREF, whose posedge indicates the start of a horizontal line of pixels, is high. Once pixel_data_RGB is set after the second cycle, W_EN was set to 1, X_ADDR was incremented by 1, and pixel_data_RGB332 is then sent to the M9K_RAM module which will output the image onto the screen, and also send and output to the IMAGE_PROCESSOR module to determine what the color is. </br> 
           When HREF hits the negative edge and the value of HREF changes from 1 to 0, we set the X_ADDR back to 0, and increment Y_ADDR by 1 to start a new row of pixels. When VSYNC, which indicates the end of a frame hits the positive edge, and the value of VSYNC changes from 0 to 1, then we reset X_ADDR and Y_ADDR for we have reached the end of a frame and must start filling in pixels from the beginning. IMAGE OF CODE AFTER PIXELS</p> 
-          <img src = "LabImages/Lab4/Byte_allocation_image.png" alt="Pixels" class="inline">
+        <img src = "LabImages/Lab4/Byte_allocation_image.png" alt="Pixels" class="inline"><p></p>
             <p> Once we’ve written the downsampler code, and set the registers in the arduino code to display a color bar, we were able to display the color bar test as shown below. COLOR BAR TEST IMAGE </p>
         
             <p> We then set the registers to send the camera output, and successfully was able to display camera output onto the screen. CAMERA OUTPUT IMAGE </p>
