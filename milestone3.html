@@ -79,12 +79,12 @@
       <p></p>
           
           <h3> Depth-First Search </h3>
-          <p> We decided to implement depth-first search/walk as our maze exploration algorithm. 
+          <p> We decided to implement depth-first search as our maze exploration algorithm. 
               Because we do not need to determine the shortest path to a certain point, we decided that 
-              breadth-first search/walk wastes time backtracking back to nodes; depth-first search is a far 
+              breadth-first search wastes time backtracking back to nodes; depth-first search is a far 
               better algorithmic option when our goal is simply to discover and visit all spaces in the maze. </p>
           <p></p>
-          <p> The primary difference in how our robot moves with DFS is the consideration of previously
+          <p> The main difference in how our robot moves with DFS is its acknowledgement of previously
             explored intersections. Originally, wall detection was the only source of information used
             in direction selection. With DFS, our robot now keeps track of all previously explored intersections
             using a 9x9 array, and when wall detection results in more than one possible path, this exploration
