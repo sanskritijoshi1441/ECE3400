@@ -88,11 +88,11 @@
             
 <h3> PLL </h3> <p></p>
     <p> The different devices involved in camera communication (camera, VGA module, RAM read and write capability) need clock to be run. To ensure the different clocks remain in phase (no skew), we set up a Phase-Locked Loop (PLL) from the FPGA’s CLOCK_50 via the Altera IP in Quartus.
-    With this method, we set up three clock lines, each operating at different frequencies:
+      With this method, we set up three clock lines, each operating at different frequencies:</p>
             &#8226; c0_sig, with a frequency of 24.0 MHz <br />
             &#8226; c1_sig, with a frequency of 25.0 MHz <br />
             &#8226; c2_sig, with a frequency of 50.0 MHz <br />
-      We could then implement the above PLL by instantiating it in the general Verilog file.</p>
+      <p>We could then implement the above PLL by instantiating it in the general Verilog file.</p>
          
 <h3> Arduino Group </h3> <p></p>          
             
