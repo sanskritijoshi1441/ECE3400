@@ -78,7 +78,7 @@
             &#8226; To have the robot successfully distinguish between red and blue treasures. <br/ >
             &#8226; To have the robot successfully distinguish a square, triangle, and diamond shape. <p></p>
           
-          <h3> Color detection </h3> <p></p>
+          <h3> Color Detection </h3> <p></p>
           <p> From the integration portion of Lab 4, we are successfully able to detect if an image is primarily red, primarly blue, or neither. 
             This allows us to detect if there is a treasure in front of the camera, and if that treasure is red or blue, as shown below.  </p>
           
@@ -86,18 +86,18 @@
           <iframe width="560" height="315" src="https://www.youtube.com/embed/6PANcUA7sv4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <p></p>
           
-          <h3> Shape detection </h3> <p></p>
+          <h3> Shape Detection </h3> <p></p>
           <p>To detect shapes, we extended the color detection logic to regions of the screen and used this information to determine which is the corresponding shape.
             To elaborate, once it has been identified there is a treasure and its color is found, we divide the screens into 3 parts across: top, middle, and bottom. 
             We then compare the number of colored pixels in each region and use this to find the right shape: a square has the same proportion of color distributed across its three regions, 
             a diamond has the most in the middle and the least in the top and bottom, and finally a triangle has colored pixels in order of least to most in its top, middle, and bottom regions. 
           The following are snippets of code serving different purposes in the above implementation:</p> 
           
-          <h5> Shape Detection </h5>
+          <h6> Shape identification </h6>
           <img src = "LabImages/milestone4/shape_det_1.PNG" alt="Stripes" class="inline"> <p></p>
-          <h5> Color Detection </h5>
+          <h6> Color detection </h6>
           <img src = "LabImages/milestone4/color_det_2.PNG" alt="Stripes" class="inline"> <p></p>
-          <h5> Region Count </h5>
+          <h6> Region pixel count </h6>
           <img src = "LabImages/milestone4/portion_check_3.PNG" alt="Stripes" class="inline"> <p></p>
           
           <p> Below is a video of our camera distinguishing both the shape (square, diamond, triangle) and color (red, blue) of treasures, meaning it can identify all 6 possible treasures (note also it indicates when there is no treasure): </p>
