@@ -94,9 +94,32 @@
             &#8226; c2_sig, with a frequency of 50.0 MHz <br />
       <p>We could then implement the above PLL by instantiating it in the general Verilog file.</p>
          
-<h3> Arduino Group </h3> <p></p>          
-            
-<h3> FPGA Group </h3> <p></p>
+<h3> Team Arduino </h3> <p></p>          
+            <h4> Goals </h4>
+             &#8226; Wire the camera to the Arduino </br >
+             &#8226; Set up its registers </br >
+             &#8226; Establish communication between the camera and FPGA to read treasure data </br>
+          <p> Before beginning the wiring, we first made sure to disable the internal pull-up resistors contained 
+            in the Arduino’s I2C interface. If we failed to disable these pull-ups, input signals that set up our 
+            camera would be pulled to 5V, while our camera requires 3.3V. Accordingly, this would result in damage 
+            to our camera. We then used 10k Ohm resistors to add the pull ups required for the SDA and SCL lines 
+            to the 3.3V power rail. We also used the PLL from the first part to make a 24 MHz clock to control the 
+            camera. The connections between the Arduino, FPGA and Camera are shown below: </p>
+             <img src = "add image" alt="PLL" class="inline"> <p></p>
+      <p> The following registers were changed below: </p>
+      &#8226; COM7: Bit[7] = 1 - resets the registers | Bit[3:2] = 11 - set 
+            the output format [For the color bar: Bit[1] = 1] </br>
+      &#8226; CLKRC: Bit[7:6] = 11 -  sets the internal clock prescaler to determine the frequency 
+            of the internal clock based on the frequency of the input clock </br>
+      &#8226; COM3: Bit[3]: 1 - enables scaling, also dependent on COM7 and COM14 </br>
+      &#8226; COM15: Bit[7:4] = 1101 - Bit[7:6] set the output range of the data and Bit[5:4] set the
+            RGB to RGB 565, which is dependent on RGB444. </br>
+      &#8226; COM17: 0 for the entire thing to turn off, to turn on color bar test: Bit[3] = 1 </br>
+      &#8226; COM9: Bit[0] = 1 - Freezes AGC/AEC, helps with the camera output stabilization </br>
+      <p> From there, we just ran the set_color_matrix() function and we were able to read and identify colors with this setup. 
+        The camera’s I2C address was also defined at 0x21. </p>
+
+<h3> Team FPGA </h3> <p></p>
     
             <h6> Setup </h6>
             <p> Once we successfully set up our PLL, we declared wires for each of our clocks in the DE0_NANO. These clocks will be used to drive the VGA_DRIVER, M9K_RAM, and IMAGE_PROCESSOR modules. </p>
