@@ -93,11 +93,18 @@
           <p> This algorithm gives our robot the ability to explore an entire maze, when originally it could easily
             get stuck traversing the same section of a maze repeatedly. Generally, our robot will travel normally 
             (wall following), reach a dead end, make a u-turn, travel back to the most recent node (intersection with 
-            more than one possible direction), traverse an unexplored path, and repeat. This results in an effective 
+            more than one possible direction), traverse an unexplored path, and repeat. A matrix will remember the This results in an effective 
             depth-first search and full exploration of any maze up to 9x9. </p>
           </p>
         <img src = "img/m3_1.png" alt="hi" class="inline", width="725", height="600">
+        <p>In this code, once the intersection is determined, the robot checks each 
+          potential wall location for a wall. When there is not a wall, that location is encoded 
+          as a possible direction. </p>
         <img src = "img/m3_2.png" alt="hi" class="inline", width="400", height="600">
+        <p>Once each possible wall location is determined, the function determine_dir()
+          is called to determine the next direction the robot should go in. From each possible direction
+          you could go in, the new direction and x and y coordinates are determined, and then checked against the
+          matrix which holds each coordinate and whether or not it was visited. </p>
         <img src = "img/m3_3.png" alt="hi" class="inline", width="300", height="300"> </br >
         <img src = "img/m3_4.png" alt="hi" class="inline", width="300", height="600">
         <img src = "img/m3_5.png" alt="hi" class="inline", width="600", height="550">
