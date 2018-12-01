@@ -110,8 +110,9 @@
             
             <h6> Downsampler </h6>
             <p>For our color resolution we decided to use RGB332. To convert RGB565 to RGB 332, we took the 3 most significant bits of read, 3 of green, and 3 of blue, but because the OV7670 Camera can only output 8 bits of a pixel at a time, we need to extract pixel color data over two clock cycles. 
-              We kept track of which clock cycle we are on, we created a register called ‘cycle’ with value 1 if we are reading from the first byte, or 0 if we are reading from the second byte. We also created a 16 bit TEMP register which will store all the values the two color data into one register. 
-              On the second cycle, we will then set TEMP[15:13] to pixel_data_RGB[7:5], TEMP[10:8] to pixel_data_RGB[4:2], and TEMP[4:3] to pixel_data_RGB[1:0]. 
+              We kept track of which clock cycle we are on, we created a register called ‘cycle’ with value 1 if we are reading from the first byte, or 0 if we are reading from the second byte. If we are reading from the camera input on the first cycle, we set pixel_data_RGB332[1:0] to the GPIO pins corressponding to the MSB of the blue bits. If we are
+              reading from the camera input on the second cycle, we set pixel_data_RGB332[7:5] to the three MSB of the red bits, and pixel_data_RGB332[4:2] to the three MSB of the green bits.
+             
             These values are set only when HREF, whose posedge indicates the start of a horizontal line of pixels, is high. Once pixel_data_RGB is set after the second cycle, W_EN was set to 1, X_ADDR was incremented by 1, and pixel_data_RGB332 is then sent to the M9K_RAM module which will output the image onto the screen, and also send and output to the IMAGE_PROCESSOR module to determine what the color is. <br/> 
           When HREF hits the negative edge and the value of HREF changes from 1 to 0, we set the X_ADDR back to 0, and increment Y_ADDR by 1 to start a new row of pixels. When VSYNC, which indicates the end of a frame hits the positive edge, and the value of VSYNC changes from 0 to 1, then we reset X_ADDR and Y_ADDR for we have reached the end of a frame and must start filling in pixels from the beginning.</p> 
         <img src = "LabImages/Lab4/Byte_allocation_image.png" alt="Pixels" class="inline"><p></p>
