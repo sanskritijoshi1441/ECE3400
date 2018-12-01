@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Milestone 2</title>
+    <title>Milestone 3</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -77,7 +77,16 @@
             &#8226; To have robot capable of maze exploration using DFS, BFS, Dijkstra, or A* </br >
             &#8226; To have the robot be able to update the GUI <br/ >
       <p></p>
-          </div>
+          
+          <h3> Depth-First Search </h3>
+          <p> We decided to implement depth-first search as our maze exploration algorithm. 
+              Because we do not need to determine the shortest path to a certain point, we decided that 
+              breadth-first search wastes time backtracking back to nodes; depth-first search is a far 
+              better algorithmic option when our goal is simply to explore all spaces in the maze.
+             The primary difference in how our robot moves with DFS is the consideration of previously explored intersections. Originally, wall detection was the only source of information used in direction selection. With DFS, our robot now keeps track of all previously explored intersections using a 9x9 array, and when wall detection results in more than one possible path, this exploration array is accessed. If any directions are unexplored, they will be given priority over any explored directions.
+             This algorithm gives our robots the ability to explore an entire maze, while originally it would easily get stuck traversing the same section of a maze repeatedly. Generally, our robot will travel normally (wall following), reach a dead end, make a u-turn, travel back to the most recent node (intersection with more than one possible direction), traverse an unexplored path, and repeat. This results in an effective depth-first search and full exploration of any maze up to 9x9.
+          </p>
+        </div>
         </div>
       </div>
     </article>
