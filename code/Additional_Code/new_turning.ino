@@ -3,7 +3,6 @@
 #include <Servo.h>
 #include <FFT.h> // include the library
 
-volatile int ls_c; //center light sensor //5
 volatile int ls_l; //left light sensor
 volatile int ls_ll; //edge left light sensor //6
 volatile int ls_r; //right light sensor
