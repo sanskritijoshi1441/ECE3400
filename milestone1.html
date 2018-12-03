@@ -75,12 +75,12 @@
           <div class="col-lg-8 col-md-10 mx-auto">
             <h3> Goals</h3>
 <p></p>
-&#8226; To have the robot adjust as it traverses a straight line.<p></p>
-&#8226; To have the robot traverse the grid in a figure eight.<p> </p>
+            &#8226; To have the robot adjust as it traverses a straight line. </br>
+            &#8226; To have the robot traverse the grid in a figure eight. <p></p>
 
-<h3> Line Detection </h3>
+<h3> Line Detection </h3> <p></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/d6kF6FJvlLk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<p> To ensure our robot could travel in a straight line, we added QRE113 IR line sensors. Before proceeding to writing the code, we tested the sensors and observed the values they outputted depending on the surfaces they covered. Using this method, we determined the threshold value we wanted to use to differentiate between black and white surfaces.</p>
+<p> To ensure our robot could travel in a straight line, we added QRE113 IR line sensors. Before proceeding to writing the code, we tested the sensors and observed the values they output depending on the surfaces they covered. Using this method, we determined the threshold value we wanted to use to differentiate between black and white surfaces.</p>
         <p> The sensors were then placed on the front of the robot, while very close to the ground to optimize the accurary of the sensor readings. </p>
         <img src = "img/IMG_2678.jpg" alt="hi" class="inline">  
         <p> We separated the sensors by a distance slightly more than the width of the tape so that they could straddle the white lines that we wanted the robot to follow. This way, the sensors could detect either the white lines' reflected intensity or the black maze’s intensity. We coded the robot to continue its forward trajectories as long as both sensors detected black (assuming the robot was placed directly above the white line to begin with). As soon as one detected white light, the robot would briefly change the rotation of the servos to adjust its course.</p>
@@ -88,16 +88,16 @@
 <img src = "img/sensor_moves_works.jpg" alt="hi" class="inline">
         
 <p> Our final conditions for the robot to follow the line were as follows:</p>
-     &#8226; If both sensors detect white or both detect black, we programmed the robot to go straight. <p></p>
-        &#8226; If the left sensor detects black and the right white, we had the robot adjust right until both detect the same color again.<p></p>
+     &#8226; If both sensors detect white or both detect black, we programmed the robot to go straight. </br>
+        &#8226; If the left sensor detects black and the right white, we had the robot adjust right until both detect the same color again.</br>
         &#8226; If the left sensor detects white and the right black, we had the robot adjust right until both detect the same color again.<p></p>
 
    
-<h3> Figure Eight </h3>
+<h3> Figure Eight </h3> <p></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/G1xp0DfKNp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<p> In order to make the robot turn, we needed to have the robot both detect an intersection and start and stop the turn at precise moments. Our initial method is as follows:</p>
+<p> In order to have the robot turn, we needed to have the robot both detect an intersection and start and stop the turn at precise moments. Our initial method was as follows:</p>
         
-        &#8226; Once both sensors detected white (an intersection), we had the robot begin turning in the appropriate direction<p></p>
+        &#8226; Once both sensors detected white (an intersection), we had the robot begin turning in the appropriate direction </br>
         &#8226; While turning, we wanted the robot to detect when the outside sensor reached black, and then white again. This would signal the end of the turn, and the robot would return to moving straight. By 'outside sensor' here, we are referring to the sensor on the side opposite the turn direction, because its detection of the new white line signaled the completion of the turn. <p></p>
         <p> We implemented these ideas in the following code:</p>
         <img src = "img/figure_eight_works.jpg" alt="hi" class="inline">                                                                    
