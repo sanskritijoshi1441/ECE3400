@@ -174,11 +174,7 @@ Serial.println("white measurements taken");
   thrs_r_w = thrs_r_w /10;
   thrs_rr_w = thrs_rr_w / 10;
 
-  //final threshold: average between black nad white values
-//  thrs_ll = (thrs_ll_w + thrs_ll_b)/2;
-//  thrs_l = (thrs_l_w + thrs_l_b)/2;
-//  thrs_r = (thrs_r_w + thrs_r_b)/2;
-//  thrs_rr = (thrs_rr_w + thrs_rr_b)/2;
+  //final threshold: Lower threshold (white) + 200
   thrs_ll = thrs_ll_w + 200;
   thrs_l = thrs_l_w + 200;
   thrs_r = thrs_r_w + 200;
