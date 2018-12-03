@@ -73,38 +73,33 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <h3> Goals</h3>
-            &#8226; To have the robot detect when there are/are not treasures. </br >
-            &#8226; To have the robot successfully distinguish between red and blue treasures. <br/ >
-            &#8226; To have the robot successfully distinguish a square, triangle, and diamond shape. <p></p>
+            <h3> Prompt </h3>
+            <p> <strong> Is “a ban on offensive autonomous weapons beyond meaningful human control” going to work? </strong></p>
           
-          <h3> Color Detection </h3> <p></p>
-          <p> From the integration portion of Lab 4, we are successfully able to detect if an image is primarily red, primarly blue, or neither. 
-            This allows us to detect if there is a treasure in front of the camera, and if that treasure is red or blue, as shown below.  </p>
-          
-          <p> Below is a video of our camera distinguishing between red and blue treasures (this is the same result as in the end of lab 4): </p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/6PANcUA7sv4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <p></p>
-          
-          <h3> Shape Detection </h3> <p></p>
-          <p>To detect shapes, we extended the color detection logic to regions of the screen and used this information to determine which is the corresponding shape.
-            To elaborate, once it has been identified there is a treasure and its color is found, we divide the screens into 3 parts across: top, middle, and bottom. 
-            We then compare the number of colored pixels in each region and use this to find the right shape: a square has the same proportion of color distributed across its three regions, 
-            a diamond has the most in the middle and the least in the top and bottom, and finally a triangle has colored pixels in order of least to most in its top, middle, and bottom regions. 
-          The following are snippets of code serving different purposes in the above implementation:</p> 
-          
-          <h6> Shape identification </h6>
-          <img src = "LabImages/milestone4/shape_det_1.PNG" alt="Stripes" class="inline"> <p></p>
-          <h6> Color detection </h6>
-          <img src = "LabImages/milestone4/color_det_2.PNG" alt="Stripes" class="inline"> <p></p>
-          <h6> Region pixel count </h6>
-          <img src = "LabImages/milestone4/portion_check_3.PNG" alt="Stripes" class="inline"> <p></p>
-          
-          <p> Below is a video of our camera distinguishing both the shape (square, diamond, triangle) and color (red, blue) of treasures, meaning it can identify all 6 possible treasures (note also it indicates when there is no treasure): </p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/T8rX301k2w4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <p></p>
-          
-          <p> Thank you team 5 for having their code public on their github repository. A lot of the FPGA code was taken from their repository.</p> 
+          <h4> Leading the Offensive Against Offensive Autonomous Weapons </h4> <p></p>
+          <p>  A ban on offensive autonomous weapons (OAW) not only should work, it must work for the sake of humanity. Most people tend to agree freedom is good and war is bad, but the brand of freedom OAWs afford goes from bad to worse. 
+          War (and any sustained attack on others should be called war) burdens he who wages it with very human guilt and shame, but OAWs have no such “defect;” their effectiveness in destruction is a frightening prospect to contemplate. 
+          Unfortunately, those who advocate OAWs – the manufacturers that make them, the governments that order them, and the hawks that believe in them – choose not to contemplate this at all, for the very reason that it is so beyond the comprehension of a human moral compass. 
+          This makes the idealism of a ban difficult to pitch to these members of society. Therefore, for a ban on OAWs to succeed, it must best be rooted in the very pragmatism that allows their existence today. </br>
+          In addition to a complete ban on the making and use of any OAWs, our strategy will consist of a realignment of the R&D and manufacturing that goes into OAWs and an effective political campaign to justify their impracticality in today’s world.</p>
+
+	      <p> The ban itself must be comprehensive and clear, while also providing a system in place for it to be updated as technology changes with it. 
+        OAWs must be defined as broadly as possible for the ban to be effective: an OAW is typically described as offensive if it has any function designed or capable of destruction or harm, and autonomous in its capacity to make full or partial decisions with its own systems and without human consent. 
+        This last note is crucial as even if a human has the final green light, a weapon that implements a process on its own should be classified as autonomous (e.g. seek and destroy). Further, the ban must apply to all equally, i.e. governments, rogue factions, and individuals. 
+        Finally, a council dedicated to this cause must enforce this policy. This could be a UN council consisting of accredited ban advocates and authorities on the topic and researchers in that field. The council can then be charged both with the enforcement of policy and with the updating of its definition should the progress in technology require it.</p>
+
+	      <p> A ban would most impact researchers and manufacturers in the field of OAWs, meaning it must be accompanied with effective alternatives for those processes. 
+        The easy fix is to redirect researchers in the field toward autonomous systems that are not devoted to war: data collection, transportation, machine-learning applications. 
+        Many of these are already applied in the military variants, so such realignment should not be so difficult. Similarly, manufacturing can be realigned toward building the autonomous devices minus the offensive tidbit. 
+        Of course, very little is easy to sell to lobbyists, but a business model reliant on destruction should not be afforded any leniency.</p>
+
+	      <p> The final component of effectively implementing this ban is placating the governments that rely on OAWs. Constituent pressure would be important to bring morality to the realm of politics (especially as a form of retaliation to pro-OAW lobbying), in the form of marches and protests. 
+        As for the argument that OAWs better protect our troops, a point should be made that the collateral damage they may cause is not worth it: we should not be getting in the business of assigning value to human lives, whether our soldiers or the bystanders that get caught in a drone’s blast. 
+        Finally, the same argument as was used to stop the production of nuclear weapons should be reiterated: mutually assured destruction means a ban on OAWs is more than worth it. As was mentioned, when the gravity of war is lost due to emotionless weapons, war can scale up to dangerous heights. 
+        A ban would not only ensure a more stable peace, it would prevent weapons from falling into the wrong hands. Rather than send OAWs on seek and destroy missions, governments should focus their attention on seeking and destroying the remnants of the OAW industry this ban would leave in its wake.</p>
+
+	      <p> To conclude, we believe the OAW industry poses a threat to our existence as humans. This is more than the sci-fi dystopias of Ex Machina or Avengers: Age of Ultron. This is very much reality, and a reality we must stray away from. 
+        It is just a shame that we must write an essay on how to do this realistically rather than simply do what is the obvious moral course of action. </p> 
           
 
 
