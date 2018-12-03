@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
 
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Milestone 4</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Intelligent Physical Systems</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">Labs/Milestones</a>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About the Team</a>
+            </li>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/m4.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>Milestone 4</h1>
+             <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+              <span class="meta">Posted by
+                <a href="#">Start Bootstrap</a>
+                on August 24, 2018</span>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h3> Goals</h3>
+            &#8226; To have the robot detect when there are/are not treasures. </br >
+            &#8226; To have the robot successfully distinguish between red and blue treasures. <br/ >
+            &#8226; To have the robot successfully distinguish a square, triangle, and diamond shape. <p></p>
+          
+          <h3> Color Detection </h3> <p></p>
+          <p> From the integration portion of Lab 4, we are successfully able to detect if an image is primarily red, primarly blue, or neither. 
+            This allows us to detect if there is a treasure in front of the camera, and if that treasure is red or blue, as shown below.  </p>
+          
+          <p> Below is a video of our camera distinguishing between red and blue treasures (this is the same result as in the end of lab 4): </p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/6PANcUA7sv4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p></p>
+          
+          <h3> Shape Detection </h3> <p></p>
+          <p>To detect shapes, we extended the color detection logic to regions of the screen and used this information to determine which is the corresponding shape.
+            To elaborate, once it has been identified there is a treasure and its color is found, we divide the screens into 3 parts across: top, middle, and bottom. 
+            We then compare the number of colored pixels in each region and use this to find the right shape: a square has the same proportion of color distributed across its three regions, 
+            a diamond has the most in the middle and the least in the top and bottom, and finally a triangle has colored pixels in order of least to most in its top, middle, and bottom regions. 
+          The following are snippets of code serving different purposes in the above implementation:</p> 
+          
+          <h6> Shape identification </h6>
+          <img src = "LabImages/milestone4/shape_det_1.PNG" alt="Stripes" class="inline"> <p></p>
+          <h6> Color detection </h6>
+          <img src = "LabImages/milestone4/color_det_2.PNG" alt="Stripes" class="inline"> <p></p>
+          <h6> Region pixel count </h6>
+          <img src = "LabImages/milestone4/portion_check_3.PNG" alt="Stripes" class="inline"> <p></p>
+          
+          <p> Below is a video of our camera distinguishing both the shape (square, diamond, triangle) and color (red, blue) of treasures, meaning it can identify all 6 possible treasures (note also it indicates when there is no treasure): </p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/T8rX301k2w4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p></p>
+          
+          <p> Thank you team 5 for having their code public on their github repository. A lot of the FPGA code was taken from their repository.</p> 
+          
+
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+                <li class="list-inline-item">
+                <a href="https://github.com/sanskritijoshi1441/ECE3400">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; ECE 3400 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
