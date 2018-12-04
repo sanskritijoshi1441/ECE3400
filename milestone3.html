@@ -81,7 +81,9 @@
             &#8226; To have the robot be able to update the GUI <br/ >
       <p></p>
           
-          <h3> Depth-First Search </h3>
+		<h3> Depth-First Search </h3> <p></p>
+		<h5> Algorithm </h5>
+	
           <p> We decided to implement depth-first search as our maze exploration algorithm. 
               Because we do not need to determine the shortest path to a certain point, we decided that 
               breadth-first search wastes time backtracking back to nodes; depth-first search is a far 
@@ -112,10 +114,19 @@
         <img src = "img/m3_4.png" alt="hi" class="inline", width="300", height="600">
         <img src = "img/m3_5.png" alt="hi" class="inline", width="600", height="550">
 	
+	    <h5> Implementation </h5>  
+	<p> We then tested our algorithm on a variety of maze layouts, the footage of which we have documented below. 
+		This includes the GUI receiving information about the maze. </br>
+	The first maze was a simple 2x3 maze with one wall: </p>
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/I58dBR9ssuY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<p> The second maze was also a 2x3 one, this time with two walls: </p>
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/GUGlMWIikpU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<p> Our final maze layout was a 4x5 maze with a long L-shaped wall. This time, the robot had trouble at a few intersections due to a 
+	a slightly more uneven surface making the line sensors touch the ground. Notably, this occurred at the last intersection, so we intervened to get our robot back on course: </p>
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/pA0NmnICADs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	    
+	<p> Here is a closeup of the GUI result for the 4x5 maze. The extra wall detected near the final intersection was due to our aforementioned intervention when the robot had trouble with an intersection: </p>
+	<img src = "img/GUI.jpg" alt="hi" class="inline", width="300", height="300">
+
         </div>
         </div>
       </div>
