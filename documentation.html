@@ -77,6 +77,7 @@
 <p></p>
 
 <h6> Final Robot Design and Documentation</h6>
+		  <p></p>
 		  <h3> Goals </h3> <p></p>
 		  <p> <strong> Overall Objective: design, fabricate, and program a robot to autonomously explore a maze; control to be based on Arduino Uno and propulsion to be based on continuous rotation servos.
 			  </strong> </p>
@@ -93,13 +94,19 @@
 			  this was in part due to the sensors’ position relative to the ground as we swapped out the parts holding them, and the sensors’ natural range/error in measurement depending on the environment we were testing in. </p>
 
 		<p>Our plan of action to remedy this was two-fold: stabilize the position of the sensors and standardize the threshold values being used.</br>
-		 For the former, we designed and 3D printed a T-shaped part to hold all four line sensors at the same height right off the ground (without touching the ground) and to prove stable enough to maintain that height. 
+		 For the former, we designed and 3D printed a T-shaped part to hold all four line sensors at the same height right off the ground (without touching the ground) and to prove stable enough to maintain that height. Click the button below to jump to our additional content and files page where to talk about our other 3d printed parts.
 		We achieved this last objective with a deft blend of superglue, screws and nuts, and willpower. </p>
-		  <h6>LINK</h6>
+		   <a href="https://sanskritijoshi1441.github.io/ECE3400/files.html">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
 		  <p>Now that we had a set height for the sensors, we went about standardizing the thresholds we used in our code. For this, we developed a snippet of code that determines useable threshold values on the spot each time it runs. 
 			  It measures a series of line sensor values, takes the average, and uses the value to compute a threshold value that is then used in our general line following (and turning) code. 
 			  Therefore, initializing our robot now involved placing it on a black maze tile to get that threshold, then on the white line to get that threshold, and finally running it as normal. </p>
-		  <h6>LINK</h6>
+		  <img src = "img/code.cjpg" alt="threshold code" class="inline"><p></p>
+  
 <h4> Wall Following </h4> <p></p>		  
 <p>We wanted to make sure our wall detection was up to par as it formed an integral part of both our primary (pseudo-dfsWalk) and backup (wall following) methods of exploring the maze. 
 	Thankfully, the thresholding for the wall sensors was much less of a chore since those sensors were very precise and rather consistent. One issue we did encounter was obstruction of the sensors by other parts of the robot. 
@@ -117,17 +124,17 @@
 		  <p>Resetting the variables once the function finishes its job:</p>
 		   <img src = "img/bins.JPG" alt="Camera Output Image Here" class="inline"><p></p>
   
-		  <h6>Unresolved Issues</h6>
-		  <h3>Microphone Circuit:</h3> <p></p>
+		  <h3>Unresolved Issues</h3>
+		  <h6>Microphone Circuit:</h6> <p></p>
 		  <p>As mentioned earlier in the robot detection section, we reduced the number of bin samples from 256 to 128 to save on memory. When we did this, the bin we needed to search in for the 660 Hz starting tone had changed and we needed to find this new bin. 
 			  However, the changing of the number of bins we sampled was a last minute change, and due to time constraints we did not have time to test the bins and find the correct bin number. </p>
-		 <h3>Camera and Treasure Detection:</h3> <p></p>
+		 <h6>Camera and Treasure Detection:</h6> <p></p>
 		  <p>For the final competition, our team planned to integrate our camera and treasure detection circuit with our main robot. However, when we transferred the camera circuit onto our robot and tested its output, our camera would output colorful noise rather than the clear images it normally would yield. 
 			  To troubleshoot this issue, we removed the camera circuit from the main robot Arduino and ran our treasure detection code to see if we could salvage our camera detection functionality by adding a second Arduino onto the robot. 
 			  Unfortunately, even after removing the camera from the robot, our camera output was colorful and noisy. When this issue originally arose, we only had a night before the competition, and decided to focus our attention to other, more pressing issues, and as a result, never got around to resolving this problem. </p>
 
-		  <h6>Conclusion</h6>
-		  <h6>Cost Breakdown:</h6>
+		  <h3>Conclusion</h3>
+		  <h3>Cost Breakdown:</h3>
 		   <img src = "img/cost.JPG" alt="Camera Output Image Here" class="inline"><p></p>
 		  
 		  
